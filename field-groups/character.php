@@ -113,7 +113,7 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_5928769b9b883',
-				'label' => 'Hair color',
+				'label' => 'Hair Color',
 				'name' => 'character-hair-color',
 				'type' => 'textarea',
 				'default_value' => '',
@@ -124,7 +124,7 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_592876c99b884',
-				'label' => 'Hair style',
+				'label' => 'Hair Style',
 				'name' => 'character-hair-style',
 				'type' => 'textarea',
 				'default_value' => '',
@@ -135,22 +135,22 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_592877029b885',
-				'label' => 'Facial hair',
+				'label' => 'Facial Hair',
 				'name' => 'character-facial-hair',
 				'type' => 'textarea',
 				'default_value' => '',
-				'placeholder' => 'What facial hair does this character have',
+				'placeholder' => 'What facial hair does this character have?',
 				'maxlength' => '',
 				'rows' => 1,
 				'formatting' => 'br',
 			),
 			array (
 				'key' => 'field_592877399b886',
-				'label' => 'Eye color',
+				'label' => 'Eye Color',
 				'name' => 'character-eye-color',
 				'type' => 'textarea',
 				'default_value' => '',
-				'placeholder' => 'What is this character\'s eye color',
+				'placeholder' => 'What is this character\'s eye color?',
 				'maxlength' => '',
 				'rows' => 1,
 				'formatting' => 'br',
@@ -168,18 +168,18 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_592879969b888',
-				'label' => 'Skin tone',
+				'label' => 'Skin Tone',
 				'name' => 'character-skin-tone',
 				'type' => 'textarea',
 				'default_value' => '',
-				'placeholder' => 'what skin tone does this character have?',
+				'placeholder' => 'What skin tone does this character have?',
 				'maxlength' => '',
 				'rows' => 1,
 				'formatting' => 'br',
 			),
 			array (
 				'key' => 'field_59287a399b88a',
-				'label' => 'Body type',
+				'label' => 'Body Type',
 				'name' => 'character-body-type',
 				'type' => 'textarea',
 				'default_value' => '',
@@ -191,10 +191,10 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_59287a659b88b',
 				'label' => 'Races',
-				'name' => 'races',
+				'name' => 'character-races-select',
 				'type' => 'post_object',
 				'post_type' => array (
-					0 => 'universe',
+					0 => 'race',
 				),
 				'taxonomy' => array (
 					0 => 'all',
@@ -297,7 +297,7 @@ if(function_exists("register_field_group"))
 				'name' => 'character-spoken-languages',
 				'type' => 'post_object',
 				'post_type' => array (
-					0 => 'universe',
+					0 => 'language',
 				),
 				'taxonomy' => array (
 					0 => 'all',
@@ -339,7 +339,7 @@ if(function_exists("register_field_group"))
 				'name' => 'character-religion',
 				'type' => 'post_object',
 				'post_type' => array (
-					0 => 'universe',
+					0 => 'religion',
 				),
 				'taxonomy' => array (
 					0 => 'all',
@@ -386,7 +386,7 @@ if(function_exists("register_field_group"))
 				'name' => 'character-weapon',
 				'type' => 'textarea',
 				'default_value' => '',
-				'placeholder' => 'What is this character\'s favorite weapon',
+				'placeholder' => 'What is this character\'s favorite weapon?',
 				'maxlength' => '',
 				'rows' => 1,
 				'formatting' => 'br',
@@ -540,7 +540,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_592881169b8ac',
 				'label' => 'Public Notes',
-				'name' => 'character-public-notes',
+				'name' => 'character-public',
 				'type' => 'textarea',
 				'default_value' => '',
 				'placeholder' => 'Write as little or as much as you want!',
@@ -551,7 +551,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5928815c9b8ad',
 				'label' => 'Private Notes',
-				'name' => 'character-private-notes',
+				'name' => 'character-private',
 				'type' => 'textarea',
 				'default_value' => '',
 				'placeholder' => 'Write as little or as much as you want',
@@ -568,7 +568,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_592880699b8aa',
 				'label' => 'Featured Image',
-				'name' => 'character-featured-image',
+				'name' => 'character-featured',
 				'type' => 'image',
 				'save_format' => 'url',
 				'preview_size' => 'thumbnail',
