@@ -42,7 +42,14 @@ add_filter('acf/fields/post_object/query/name=location-notable-cities', 'locatio
 add_filter('acf/fields/post_object/query/name=character-birthplace', 'location_author_query', 10, 3);
 // Creature field filters
 add_filter('acf/fields/post_object/query/name=creature-habitats-select', 'location_author_query', 10, 3);
-
+// Religion field filters
+add_filter('acf/fields/post_object/query/name=religion-locations', 'location_author_query', 10, 3);
+// Group field filters
+add_filter('acf/fields/post_object/query/name=group-locations', 'location_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=group-headquarters', 'location_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=group-offices', 'location_author_query', 10, 3);
+// Scene field filters
+add_filter('acf/fields/post_object/query/name=scene-locations', 'location_author_query', 10, 3);
 
 
 // --------- Restrict CHARACTER Selection to Current User ---------
@@ -70,7 +77,18 @@ add_filter('acf/fields/post_object/query/name=item-original-owners', 'character_
 add_filter('acf/fields/post_object/query/name=item-past-owners', 'character_author_query', 10, 3);
 add_filter('acf/fields/post_object/query/name=item-current-owners', 'character_author_query', 10, 3);
 add_filter('acf/fields/post_object/query/name=item-makers', 'character_author_query', 10, 3);
-
+// Magic field filters
+add_filter('acf/fields/post_object/query/name=magic-deity', 'character_author_query', 10, 3);
+// Race field filters
+add_filter('acf/fields/post_object/query/name=race-famous-figures', 'character_author_query', 10, 3);
+// Religion field filters
+add_filter('acf/fields/post_object/query/name=religion-notable-figures', 'character_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=religion-deities', 'character_author_query', 10, 3);
+// Group field filters
+add_filter('acf/fields/post_object/query/name=group-leaders', 'character_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=group-members', 'character_author_query', 10, 3);
+// Scene field filters
+add_filter('acf/fields/post_object/query/name=scene-characters', 'character_author_query', 10, 3);
 
 
 // --------- Restrict ITEM Selection to Current User ---------
@@ -83,9 +101,13 @@ $args['authors']=$user_id;
 $args['post_type']='item';
 return $args;
 }
-// X field filters
-add_filter('acf/fields/post_object/query/name=TEMP-NAME', 'item_author_query', 10, 3);
-
+// Religion field filters
+add_filter('acf/fields/post_object/query/name=religion-artifacts', 'item_author_query', 10, 3);
+// Group field filters
+add_filter('acf/fields/post_object/query/name=group-equipment', 'item_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=group-key-items', 'item_author_query', 10, 3);
+// Scene field filters
+add_filter('acf/fields/post_object/query/name=scene-items', 'item_author_query', 10, 3);
 
 
 // --------- Restrict MAGIC Selection to Current User ---------
@@ -102,7 +124,6 @@ return $args;
 add_filter('acf/fields/post_object/query/name=TEMP-NAME', 'magic_author_query', 10, 3);
 
 
-
 // --------- Restrict CREATURE Selection to Current User ---------
 function creature_author_query( $args, $field, $post ) {
 // modify the order
@@ -117,7 +138,6 @@ return $args;
 add_filter('acf/fields/post_object/query/name=creature-related-creatures', 'creature_author_query', 10, 3);
 
 
-
 // --------- Restrict RACE Selection to Current User ---------
 function race_author_query( $args, $field, $post ) {
 // modify the order
@@ -128,9 +148,8 @@ $args['authors']=$user_id;
 $args['post_type']='race';
 return $args;
 }
-// X field filters
-add_filter('acf/fields/post_object/query/name=TEMP-NAME', 'race_author_query', 10, 3);
-
+// Religion field filters
+add_filter('acf/fields/post_object/query/name=religion-races', 'race_author_query', 10, 3);
 
 
 // --------- Restrict LANGUAGE Selection to Current User ---------
@@ -147,7 +166,6 @@ return $args;
 add_filter('acf/fields/post_object/query/name=location-languages-select', 'language_author_query', 10, 3);
 
 
-
 // --------- Restrict RELIGION Selection to Current User ---------
 function religion_author_query( $args, $field, $post ) {
 // modify the order
@@ -162,7 +180,6 @@ return $args;
 add_filter('acf/fields/post_object/query/name=character-religion', 'religion_author_query', 10, 3);
 
 
-
 // --------- Restrict GROUP Selection to Current User ---------
 function group_author_query( $args, $field, $post ) {
 // modify the order
@@ -173,9 +190,15 @@ $args['authors']=$user_id;
 $args['post_type']='group';
 return $args;
 }
-// X field filters
-add_filter('acf/fields/post_object/query/name=TEMP-NAME', 'group_author_query', 10, 3);
-
+// Group field filters
+add_filter('acf/fields/post_object/query/name=group-supergroups', 'group_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=group-subgroups', 'group_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=group-sistergroups', 'group_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=group-allies', 'group_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=group-enemies', 'group_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=group-rivals', 'group_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=group-clients', 'group_author_query', 10, 3);
+add_filter('acf/fields/post_object/query/name=group-suppliers', 'group_author_query', 10, 3);
 
 
 // --------- Restrict SCENE Selection to Current User ---------

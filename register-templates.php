@@ -6,7 +6,7 @@ if( !function_exists('get_universe_template') ):
  function get_universe_template($single_template) {
     global $wp_query, $post;
     if ($post->post_type == 'universe'){
-        $single_template = plugin_dir_path(__FILE__) . '/templates/single-universe.php';
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single/single-universe.php';
     }//end if universe
     return $single_template;
 }//end get_universe_template function
@@ -32,7 +32,7 @@ if( !function_exists('get_location_template') ):
  function get_location_template($single_template) {
     global $wp_query, $post;
     if ($post->post_type == 'location'){
-        $single_template = plugin_dir_path(__FILE__) . '/templates/single-location.php';
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single/single-location.php';
     }//end if location
     return $single_template;
 }//end get_location_template function
@@ -57,7 +57,7 @@ if( !function_exists('get_character_template') ):
  function get_character_template($single_template) {
     global $wp_query, $post;
     if ($post->post_type == 'character'){
-        $single_template = plugin_dir_path(__FILE__) . '/templates/single-character.php';
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single/single-character.php';
     }//end if character
     return $single_template;
 }//end get_character_template function
@@ -82,7 +82,7 @@ if( !function_exists('get_item_template') ):
  function get_item_template($single_template) {
     global $wp_query, $post;
     if ($post->post_type == 'item'){
-        $single_template = plugin_dir_path(__FILE__) . '/templates/single-item.php';
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single/single-item.php';
     }//end if item
     return $single_template;
 }//end get_item_template function
@@ -107,7 +107,7 @@ if( !function_exists('get_magic_template') ):
  function get_magic_template($single_template) {
     global $wp_query, $post;
     if ($post->post_type == 'magic'){
-        $single_template = plugin_dir_path(__FILE__) . '/templates/single-magic.php';
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single/single-magic.php';
     }//end if magic
     return $single_template;
 }//end get_magic_template function
@@ -132,7 +132,7 @@ if( !function_exists('get_creature_template') ):
  function get_creature_template($single_template) {
     global $wp_query, $post;
     if ($post->post_type == 'creature'){
-        $single_template = plugin_dir_path(__FILE__) . '/templates/single-creature.php';
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single/single-creature.php';
     }//end if creature
     return $single_template;
 }//end get_creature_template function
@@ -157,7 +157,7 @@ if( !function_exists('get_race_template') ):
  function get_race_template($single_template) {
     global $wp_query, $post;
     if ($post->post_type == 'race'){
-        $single_template = plugin_dir_path(__FILE__) . '/templates/single-race.php';
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single/single-race.php';
     }//end if race
     return $single_template;
 }//end get_race_template function
@@ -182,7 +182,7 @@ if( !function_exists('get_language_template') ):
  function get_language_template($single_template) {
     global $wp_query, $post;
     if ($post->post_type == 'language'){
-        $single_template = plugin_dir_path(__FILE__) . '/templates/single-language.php';
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single/single-language.php';
     }//end if language
     return $single_template;
 }//end get_language_template function
@@ -207,7 +207,7 @@ if( !function_exists('get_religion_template') ):
  function get_religion_template($single_template) {
     global $wp_query, $post;
     if ($post->post_type == 'religion'){
-        $single_template = plugin_dir_path(__FILE__) . '/templates/single-religion.php';
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single/single-religion.php';
     }//end if religion
     return $single_template;
 }//end get_religion_template function
@@ -232,7 +232,7 @@ if( !function_exists('get_group_template') ):
  function get_group_template($single_template) {
     global $wp_query, $post;
     if ($post->post_type == 'group'){
-        $single_template = plugin_dir_path(__FILE__) . '/templates/single-group.php';
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single/single-group.php';
     }//end if group
     return $single_template;
 }//end get_group_template function
@@ -257,7 +257,7 @@ if( !function_exists('get_scene_template') ):
  function get_scene_template($single_template) {
     global $wp_query, $post;
     if ($post->post_type == 'scene'){
-        $single_template = plugin_dir_path(__FILE__) . '/templates/single-scene.php';
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single/single-scene.php';
     }//end if scene
     return $single_template;
 }//end get_scene_template function
@@ -296,8 +296,8 @@ function lorebook_locate_plugin_template($template_names, $load = false, $requir
         } elseif ( file_exists(get_template_directory . '/' . $template_name) ) {
             $located = get_template_directory . '/' . $template_name;
             break;
-        } elseif ( file_exists( $this_plugin_dir . '/templates/' . $template_name) ) {
-            $located =  $this_plugin_dir . '/templates/' . $template_name;
+        } elseif ( file_exists( $this_plugin_dir . '/templates/archive/' . $template_name) ) {
+            $located =  $this_plugin_dir . '/templates/archive/' . $template_name;
             break;
         }
     }
