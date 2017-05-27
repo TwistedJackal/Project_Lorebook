@@ -206,6 +206,4 @@ function acf_set_featured_image( $value, $post_id, $field  ){
 add_filter('acf/update_value/name=universe-featured', 'acf_set_featured_image', 10, 3);
 add_filter('acf/update_value/name=location-featured', 'acf_set_featured_image', 10, 3);
 
-// TEST 10
-
-// 9th TIME THE FINAL TIME???
+// i did make the change :)
