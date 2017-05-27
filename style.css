@@ -1,0 +1,348 @@
+/* Main Container */
+#lorebook-main {
+  width: 80%;
+  margin: auto;
+  max-width: 1500px;
+}
+
+/* --------- Navigation --------- */
+/* Container */
+#lorebook-navigation {
+  float: left;
+  width: 15%;
+  margin-right: 7.5%;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  list-style: none;
+}
+/* Nav Links */
+#lorebook-navigation li {
+  width: 100%;
+}
+#lorebook-navigation li a {
+  color: black;
+  padding: 15px;
+  transition: 0.3s;
+  font-size: 17px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  line-height: 1.5;
+  width: 100%;
+  display: block;
+}
+
+
+/* --------- Title / Featured Image --------- */
+#lorebook-header {
+  float: left;
+  width: 60%;
+  margin: auto;
+  margin-left: -5% !important;
+  margin-bottom: 50px;
+  position: relative;
+  left: 2.5%;
+  display: table;
+  height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#lorebook-header h1 {
+  display: table-cell;
+  vertical-align: middle;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 5px #000;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.5rem;
+}
+
+
+/* --------- Bottom Buttons --------- */
+/* Edit Button */
+#edit-Button {
+  position: fixed;
+  right: 10%;
+  bottom: 1%;
+  font-size: 16px;
+  line-height: 1;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+/* Cancel Button */
+#cancel-Button {
+  position: fixed;
+  right: 10%;
+  bottom: 1%;
+  font-size: 16px;
+  line-height: 1;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+/* Save / Create Button */
+#edit-Fields #poststuff div input, #create-Fields #poststuff div input {
+  position: fixed;
+  right: 18%;
+  bottom: 1%;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* Add Image Button */
+#edit-Fields #poststuff div input.add-image {
+  right: 25%;
+}
+/* New Button */
+#create-New {
+  position: fixed;
+  right: 2%;
+  bottom: 1%;
+  font-size: 16px;
+  line-height: 1;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 1em 2em;
+  transition: background 0.2s;
+  color: #fff;
+  background-color: #222;
+  border: 0;
+  border-radius: 2px;
+}
+
+
+/* --------- Field Containers --------- */
+#display-Fields {
+  display: block;
+  transition: 0.3s;
+}
+#edit-Fields {
+  display: none;
+  transition: 0.3s;
+}
+#create-Fields {
+  transition: 0.3s;
+}
+/* -------------------------------------- */
+
+
+/* --------- Display Fields --------- */
+/* Tab Container */
+div.display-tabs {
+  float: right;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 15%;
+  margin-left: 7.5%;
+  margin-bottom: 100%;
+}
+
+/* Tab Buttons */
+div.display-tabs button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+  font-family: "Open Sans",sans-serif;
+  font-weight: bold;
+}
+
+/* Change background color of buttons on hover */
+div.display-tabs button:hover {
+  background-color: #ddd;
+}
+
+/* Change the background color of active button */
+div.display-tabs button.active {
+  background-color: #ccc;
+}
+
+/* Field Size */
+#display-Fields div div {
+  float: left;
+  width: 25%;
+  margin-bottom: 30px;
+}
+#display-Fields div div:nth-child(even) {
+  float: right;
+}
+.tabcontent div {
+  min-height: 80px;
+}
+
+/* Field Labels */
+#display-Fields h2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333333;
+  line-height: 1.5;
+  margin: 0;
+  margin-left: 5px;
+}
+
+/* Field Textareas */
+#display-Fields p {
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid transparent;
+  margin: 0;
+}
+
+/* Placeholder Text */
+p.placeholder {
+  color: #999;
+}
+
+/* Post Object H3 Titles */
+#display-Fields h3 {
+  padding: 0;
+  margin: 0;
+}
+
+/* Default Active Tab Content */
+.tabcontent { display: none; }
+#tabcontent-1 { display: block; }
+/* ---------------------------------- */
+
+
+/* --------- Edit Fields --------- */
+/* Container Top Positioning Fix */
+#edit-Fields #poststuff, #create-Fields #poststuff {
+  padding-top: 0;
+}
+#edit-Fields .postbox, #create-Fields .postbox {
+  margin-bottom: 0;
+}
+
+/* Make Tabs Vertical */
+#edit-Fields .inside div, #create-Fields .inside div {
+  float: left;
+}
+
+/* Tab Container */
+#edit-Fields .acf-tab-wrap, #create-Fields .acf-tab-wrap {
+  float: right !important;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 15%;
+  margin-left: 7.5%;
+  margin-bottom: 100%;
+}
+#edit-Fields .acf-tab-group, #create-Fields .acf-tab-group {
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
+}
+
+/* Tab Buttons */
+#edit-Fields .acf-tab-wrap li, #create-Fields .acf-tab-wrap li {
+  width: 100%;
+}
+#edit-Fields .acf-tab-wrap li a, #create-Fields .acf-tab-wrap li a {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+/* Change background color of buttons on hover */
+#edit-Fields .acf-tab-wrap li a:hover, #create-Fields .acf-tab-wrap li a:hover {
+  background-color: #ddd;
+}
+
+/* Change the background color of active button */
+#edit-Fields .acf-tab-wrap li.active a, #create-Fields .acf-tab-wrap li.active a {
+  background-color: #ccc;
+  margin-bottom: 0;
+}
+
+/* Field Size */
+#edit-Fields .inside .field, #create-Fields .inside .field {
+  width: 25%;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+/* Field Labels */
+#edit-Fields .acf_postbox p.label, #create-Fields .acf_postbox p.label {
+  margin: 0;
+  text-shadow: none;
+}
+#edit-Fields .acf_postbox p.label label, #create-Fields .acf_postbox p.label label {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333333;
+  line-height: 1.5;
+  margin: 0;
+  margin-left: 5px;
+}
+
+/* Textarea Min Height */
+#edit-Fields .acf_postbox .field textarea, #create-Fields .acf_postbox .field textarea {
+  min-height: 50px;
+}
+
+/* ------------------------------- */
+
+
+/* --------- PAGE SPECIFIC --------- */
+/* Archives */
+#lorebook-archives {
+  width: 60%;
+}
+#lorebook-archives a div {
+  width: 40%;
+  height: 100px;
+  float: left;
+  margin-bottom: 50px;
+  display: table;
+}
+#lorebook-archives a:nth-child(even) div {
+  float: right;
+}
+#archive-post h1 {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 5px #000;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Locations - Culture */
+#acf-location-population, #acf-location-motto, #acf-location-sports, #acf-location-languages-select {
+  float: right !important;
+}
+/* Locations - Geography */
+#acf-location-crops, #acf-location-climate {
+  float: right !important;
+}
+/* Locations - Notes */
+#acf-location-private {
+  float: right !important;
+}
