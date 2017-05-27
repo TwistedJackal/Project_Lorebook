@@ -32,6 +32,13 @@ include_once( plugin_dir_path( __FILE__ ) . '/post-types/cpt-universes.php' );
 include_once( plugin_dir_path( __FILE__ ) . '/post-types/cpt-locations.php' );
 include_once( plugin_dir_path( __FILE__ ) . '/post-types/cpt-characters.php' );
 include_once( plugin_dir_path( __FILE__ ) . '/post-types/cpt-items.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/post-types/cpt-races.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/post-types/cpt-scenes.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/post-types/cpt-languages.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/post-types/cpt-creatures.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/post-types/cpt-magic.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/post-types/cpt-groups.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/post-types/cpt-religions.php' );
 
 // Post Templates
 include_once( plugin_dir_path( __FILE__ ) . 'register-templates.php' );
@@ -47,6 +54,13 @@ function lbk_admin_menu() {
     add_submenu_page( 'lorebook/admin-page.php', 'Locations', 'Locations', 'manage_options', 'edit.php?post_type=location' );
     add_submenu_page( 'lorebook/admin-page.php', 'Characters', 'Characters', 'manage_options', 'edit.php?post_type=character' );
     add_submenu_page( 'lorebook/admin-page.php', 'Items', 'Items', 'manage_options', 'edit.php?post_type=item' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Races', 'Races', 'manage_options', 'edit.php?post_type=item' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Scenes', 'Scenes', 'manage_options', 'edit.php?post_type=item' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Languages', 'Languages', 'manage_options', 'edit.php?post_type=item' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Creatures', 'Creatures', 'manage_options', 'edit.php?post_type=item' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Magic', 'Magic', 'manage_options', 'edit.php?post_type=item' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Groups', 'Groups', 'manage_options', 'edit.php?post_type=item' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Religions', 'Religions', 'manage_options', 'edit.php?post_type=item' );
 }
 
 // --------- Advanced Custom Fields ---------
