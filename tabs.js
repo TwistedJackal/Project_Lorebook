@@ -394,7 +394,7 @@ jQuery(document).ready(function( $ ){
 // --------- ITEMS ---------
 jQuery(document).ready(function( $ ){
 // Item - Overview
-  $(".single-character #tablink-1").click( function() {
+  $(".single-item #tablink-1").click( function() {
     // Set Active Display Tab Button
     $(".tablink").removeClass("active");
     $("#tablink-1").addClass("active");
@@ -406,10 +406,10 @@ jQuery(document).ready(function( $ ){
     $("#edit-Fields .acf-tab-wrap li:nth-child(1)").addClass("active");
     // Show Edit Tab Fields
     $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
-    $("#acf-character-name, #acf-character-type, #acf-character-universe, #acf-character-description").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+    $("#acf-item-name, #acf-item-type, #acf-item-universe, #acf-item-description").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
   } );
 // Item - Looks
-  $(".single-character #tablink-2").click( function() {
+  $(".single-item #tablink-2").click( function() {
     // Set Active Display Tab Button
     $(".tablink").removeClass("active");
     $("#tablink-2").addClass("active");
@@ -421,10 +421,10 @@ jQuery(document).ready(function( $ ){
     $("#edit-Fields .acf-tab-wrap li:nth-child(2)").addClass("active");
     // Show Edit Tab Fields
     $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
-    $("#acf-character-materials, #acf-character-weight").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+    $("#acf-item-materials, #acf-item-weight").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
   } );
 // Item - History
-  $(".single-character #tablink-3").click( function() {
+  $(".single-item #tablink-3").click( function() {
     // Set Active Display Tab Button
     $(".tablink").removeClass("active");
     $("#tablink-3").addClass("active");
@@ -436,10 +436,10 @@ jQuery(document).ready(function( $ ){
     $("#edit-Fields .acf-tab-wrap li:nth-child(3)").addClass("active");
     // Show Edit Tab Fields
     $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
-    $("#acf-character-original-owners, #acf-character-past-owners, #acf-character-current-owners, #acf-character-makers, #acf-character-creation-date").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+    $("#acf-item-original-owners, #acf-item-past-owners, #acf-item-current-owners, #acf-item-makers, #acf-item-creation-date").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
   } );
 // Item - Abilities
-  $(".single-character #tablink-4").click( function() {
+  $(".single-item #tablink-4").click( function() {
     // Set Active Display Tab Button
     $(".tablink").removeClass("active");
     $("#tablink-4").addClass("active");
@@ -451,10 +451,10 @@ jQuery(document).ready(function( $ ){
     $("#edit-Fields .acf-tab-wrap li:nth-child(4)").addClass("active");
     // Show Edit Tab Fields
     $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
-    $("#acf-character-magic").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+    $("#acf-item-magic").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
   } );
 // Item - Notes
-  $(".single-character #tablink-5").click( function() {
+  $(".single-item #tablink-5").click( function() {
     // Set Active Display Tab Button
     $(".tablink").removeClass("active");
     $("#tablink-5").addClass("active");
@@ -466,10 +466,10 @@ jQuery(document).ready(function( $ ){
     $("#edit-Fields .acf-tab-wrap li:nth-child(5)").addClass("active");
     // Show Edit Tab Fields
     $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
-    $("#acf-character-public, #acf-character-private").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+    $("#acf-item-public, #acf-item-private").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
   } );
 // Item - Gallery
-  $(".single-character #tablink-6").click( function() {
+  $(".single-item #tablink-6").click( function() {
     // Set Active Display Tab Button
     $(".tablink").removeClass("active");
     $("#tablink-6").addClass("active");
@@ -481,7 +481,7 @@ jQuery(document).ready(function( $ ){
     $("#edit-Fields .acf-tab-wrap li:nth-child(6)").addClass("active");
     // Show Edit Tab Fields
     $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
-    $("#acf-character-featured").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+    $("#acf-item-featured").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
   } );
 });
 /* ========================================= */
