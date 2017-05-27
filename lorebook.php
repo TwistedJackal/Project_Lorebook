@@ -54,13 +54,13 @@ function lbk_admin_menu() {
     add_submenu_page( 'lorebook/admin-page.php', 'Locations', 'Locations', 'manage_options', 'edit.php?post_type=location' );
     add_submenu_page( 'lorebook/admin-page.php', 'Characters', 'Characters', 'manage_options', 'edit.php?post_type=character' );
     add_submenu_page( 'lorebook/admin-page.php', 'Items', 'Items', 'manage_options', 'edit.php?post_type=item' );
-    add_submenu_page( 'lorebook/admin-page.php', 'Races', 'Races', 'manage_options', 'edit.php?post_type=item' );
-    add_submenu_page( 'lorebook/admin-page.php', 'Scenes', 'Scenes', 'manage_options', 'edit.php?post_type=item' );
-    add_submenu_page( 'lorebook/admin-page.php', 'Languages', 'Languages', 'manage_options', 'edit.php?post_type=item' );
-    add_submenu_page( 'lorebook/admin-page.php', 'Creatures', 'Creatures', 'manage_options', 'edit.php?post_type=item' );
-    add_submenu_page( 'lorebook/admin-page.php', 'Magic', 'Magic', 'manage_options', 'edit.php?post_type=item' );
-    add_submenu_page( 'lorebook/admin-page.php', 'Groups', 'Groups', 'manage_options', 'edit.php?post_type=item' );
-    add_submenu_page( 'lorebook/admin-page.php', 'Religions', 'Religions', 'manage_options', 'edit.php?post_type=item' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Magic', 'Magic', 'manage_options', 'edit.php?post_type=magic' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Creatures', 'Creatures', 'manage_options', 'edit.php?post_type=creature' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Races', 'Races', 'manage_options', 'edit.php?post_type=race' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Languages', 'Languages', 'manage_options', 'edit.php?post_type=language' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Religions', 'Religions', 'manage_options', 'edit.php?post_type=religion' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Groups', 'Groups', 'manage_options', 'edit.php?post_type=group' );
+    add_submenu_page( 'lorebook/admin-page.php', 'Scenes', 'Scenes', 'manage_options', 'edit.php?post_type=scene' );
 }
 
 // --------- Advanced Custom Fields ---------
@@ -72,14 +72,21 @@ include_once( plugin_dir_path( __FILE__ ) . '/field-groups/universe.php' );
 include_once( plugin_dir_path( __FILE__ ) . '/field-groups/location.php' );
 include_once( plugin_dir_path( __FILE__ ) . '/field-groups/character.php' );
 include_once( plugin_dir_path( __FILE__ ) . '/field-groups/item.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/field-groups/magic.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/field-groups/creature.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/field-groups/race.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/field-groups/language.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/field-groups/religion.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/field-groups/group.php' );
+include_once( plugin_dir_path( __FILE__ ) . '/field-groups/scene.php' );
 
 // Field Queries
 include_once( plugin_dir_path( __FILE__ ) . 'field-queries.php' );
 
 // ------------------------------------------
 
-// --------- Create Pages ---------
-// 'Create Universe' Page
+// ========= CREATE PAGES =========
+// --------- 'Create Universe' Page ---------
 function install_new_universe_pg(){
   $new_page_title = 'Create Universe';
   $new_page_content = '';
@@ -111,7 +118,7 @@ function new_universe_template( $page_template )
 }
 
 
-// 'Create Location' Page
+// --------- 'Create Location' Page ---------
 function install_new_location_pg(){
   $new_page_title = 'Create Location';
   $new_page_content = '';
@@ -143,7 +150,7 @@ function new_location_template( $page_template )
 }
 
 
-// 'Create Character' Page
+// --------- 'Create Character' Page ---------
 function install_new_character_pg(){
   $new_page_title = 'Create Character';
   $new_page_content = '';
@@ -175,7 +182,7 @@ function new_character_template( $page_template )
 }
 
 
-// 'Create Item' Page
+// --------- 'Create Item' Page ---------
 function install_new_item_pg(){
   $new_page_title = 'Create Item';
   $new_page_content = '';
@@ -206,100 +213,8 @@ function new_item_template( $page_template )
     return $page_template;
 }
 
-// 'Create Group' Page
-function install_new_group_pg(){
-  $new_page_title = 'Create Group';
-  $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-group.php';
-  $page_check = get_page_by_title($new_page_title);
-  $new_page = array(
-          'post_type' => 'page',
-          'post_title' => $new_page_title,
-          'post_content' => $new_page_content,
-          'post_status' => 'publish',
-          'post_author' => 1,
-  );
-  if(!isset($page_check->ID)){
-          $new_page_id = wp_insert_post($new_page);
-          if(!empty($new_page_template)){
-                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
-          }
-  }
-}
-register_activation_hook(__FILE__, 'install_new_group_pg');
 
-add_filter( 'page_template', 'new_group_template' );
-function new_group_template( $page_template )
-{
-    if ( is_page( 'create-group' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-group.php';
-    }
-    return $page_template;
-}
-
-// 'Create Creature' Page
-function install_new_creature_pg(){
-  $new_page_title = 'Create Creature';
-  $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-creature.php';
-  $page_check = get_page_by_title($new_page_title);
-  $new_page = array(
-          'post_type' => 'page',
-          'post_title' => $new_page_title,
-          'post_content' => $new_page_content,
-          'post_status' => 'publish',
-          'post_author' => 1,
-  );
-  if(!isset($page_check->ID)){
-          $new_page_id = wp_insert_post($new_page);
-          if(!empty($new_page_template)){
-                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
-          }
-  }
-}
-register_activation_hook(__FILE__, 'install_new_creature_pg');
-
-add_filter( 'page_template', 'new_creature_template' );
-function new_creature_template( $page_template )
-{
-    if ( is_page( 'create-creature' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-creature.php';
-    }
-    return $page_template;
-}
-
-// 'Create Language' Page
-function install_new_language_pg(){
-  $new_page_title = 'Create Language';
-  $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-language.php';
-  $page_check = get_page_by_title($new_page_title);
-  $new_page = array(
-          'post_type' => 'page',
-          'post_title' => $new_page_title,
-          'post_content' => $new_page_content,
-          'post_status' => 'publish',
-          'post_author' => 1,
-  );
-  if(!isset($page_check->ID)){
-          $new_page_id = wp_insert_post($new_page);
-          if(!empty($new_page_template)){
-                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
-          }
-  }
-}
-register_activation_hook(__FILE__, 'install_new_language_pg');
-
-add_filter( 'page_template', 'new_language_template' );
-function new_language_template( $page_template )
-{
-    if ( is_page( 'create-language' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-language.php';
-    }
-    return $page_template;
-}
-
-// 'Create Magic' Page
+// --------- 'Create Magic' Page ---------
 function install_new_magic_pg(){
   $new_page_title = 'Create Magic';
   $new_page_content = '';
@@ -330,7 +245,40 @@ function new_magic_template( $page_template )
     return $page_template;
 }
 
-// 'Create Race' Page
+
+// --------- 'Create Creature' Page ---------
+function install_new_creature_pg(){
+  $new_page_title = 'Create Creature';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-creature.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+  );
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_creature_pg');
+
+add_filter( 'page_template', 'new_creature_template' );
+function new_creature_template( $page_template )
+{
+    if ( is_page( 'create-creature' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new-creature.php';
+    }
+    return $page_template;
+}
+
+
+// --------- 'Create Race' Page ---------
 function install_new_race_pg(){
   $new_page_title = 'Create Race';
   $new_page_content = '';
@@ -361,7 +309,40 @@ function new_race_template( $page_template )
     return $page_template;
 }
 
-// 'Create Religion' Page
+
+// --------- 'Create Language' Page ---------
+function install_new_language_pg(){
+  $new_page_title = 'Create Language';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-language.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+  );
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_language_pg');
+
+add_filter( 'page_template', 'new_language_template' );
+function new_language_template( $page_template )
+{
+    if ( is_page( 'create-language' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new-language.php';
+    }
+    return $page_template;
+}
+
+
+// --------- 'Create Religion' Page ---------
 function install_new_religion_pg(){
   $new_page_title = 'Create Religion';
   $new_page_content = '';
@@ -392,7 +373,40 @@ function new_religion_template( $page_template )
     return $page_template;
 }
 
-// 'Create Scene' Page
+
+// --------- 'Create Group' Page ---------
+function install_new_group_pg(){
+  $new_page_title = 'Create Group';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-group.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+  );
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_group_pg');
+
+add_filter( 'page_template', 'new_group_template' );
+function new_group_template( $page_template )
+{
+    if ( is_page( 'create-group' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new-group.php';
+    }
+    return $page_template;
+}
+
+
+// --------- 'Create Scene' Page ---------
 function install_new_scene_pg(){
   $new_page_title = 'Create Scene';
   $new_page_content = '';
@@ -423,7 +437,9 @@ function new_scene_template( $page_template )
     return $page_template;
 }
 
-// Set Featured Images
+
+
+// ========= Set Featured Images =========
 function acf_set_featured_image( $value, $post_id, $field  ){
     if($value != ''){
       delete_post_thumbnail( $post_id);
@@ -435,3 +451,12 @@ function acf_set_featured_image( $value, $post_id, $field  ){
 // acf/update_value/name={$field_name} - filter for a specific field based on it's name
 add_filter('acf/update_value/name=universe-featured', 'acf_set_featured_image', 10, 3);
 add_filter('acf/update_value/name=location-featured', 'acf_set_featured_image', 10, 3);
+add_filter('acf/update_value/name=character-featured', 'acf_set_featured_image', 10, 3);
+add_filter('acf/update_value/name=item-featured', 'acf_set_featured_image', 10, 3);
+add_filter('acf/update_value/name=magic-featured', 'acf_set_featured_image', 10, 3);
+add_filter('acf/update_value/name=creature-featured', 'acf_set_featured_image', 10, 3);
+add_filter('acf/update_value/name=race-featured', 'acf_set_featured_image', 10, 3);
+add_filter('acf/update_value/name=language-featured', 'acf_set_featured_image', 10, 3);
+add_filter('acf/update_value/name=religion-featured', 'acf_set_featured_image', 10, 3);
+add_filter('acf/update_value/name=group-featured', 'acf_set_featured_image', 10, 3);
+add_filter('acf/update_value/name=scene-featured', 'acf_set_featured_image', 10, 3);

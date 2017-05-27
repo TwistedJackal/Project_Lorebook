@@ -25,7 +25,7 @@ function item_custom_post_type() {
     $args = array(
         'public'      => true,
         'labels'      => $labels,
-        'rewrite'       => array( 'slug' => 'item' ),
+        'rewrite'       => array( 'slug' => 'items' ),
         'has_archive'   => true,
         'show_in_menu'  => false,
         'supports'      => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'comments' )

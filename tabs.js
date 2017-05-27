@@ -66,6 +66,15 @@ jQuery(document).ready(function( $ ){
       $(".tabcontent").hide();
       $("#tabcontent-7").show();
     }
+    // Tab 8
+    else if ($("#edit-Fields .acf-tab-wrap li:nth-child(8)").hasClass("active")) {
+      // Set Active Tab Button
+      $(".tablink").removeClass('active');
+      $("#tablink-8").addClass('active');
+      // Show Tab Content
+      $(".tabcontent").hide();
+      $("#tabcontent-8").show();
+    }
   } );
 });
 /* ================================== */
@@ -482,6 +491,115 @@ jQuery(document).ready(function( $ ){
     // Show Edit Tab Fields
     $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
     $("#acf-item-featured").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+  } );
+});
+
+// --------- CREATURES ---------
+jQuery(document).ready(function( $ ){
+// Creature - Overview
+  $(".single-creature #tablink-1").click( function() {
+    // Set Active Display Tab Button
+    $(".tablink").removeClass("active");
+    $("#tablink-1").addClass("active");
+    // Show Tab Content
+    $(".tabcontent").hide();
+    $("#tabcontent-1").show();
+    // Set Active Edit Tab Button
+    $("#edit-Fields .acf-tab-wrap li").removeClass("active");
+    $("#edit-Fields .acf-tab-wrap li:nth-child(1)").addClass("active");
+    // Show Edit Tab Fields
+    $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
+    $("#acf-creature-name, #acf-creature-type, #acf-creature-universe, #acf-creature-description").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+  } );
+// Creature - Looks
+  $(".single-creature #tablink-2").click( function() {
+    // Set Active Display Tab Button
+    $(".tablink").removeClass("active");
+    $("#tablink-2").addClass("active");
+    // Show Tab Content
+    $(".tabcontent").hide();
+    $("#tabcontent-2").show();
+    // Set Active Edit Tab Button
+    $("#edit-Fields .acf-tab-wrap li").removeClass("active");
+    $("#edit-Fields .acf-tab-wrap li:nth-child(2)").addClass("active");
+    // Show Edit Tab Fields
+    $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
+    $("#acf-creature-color, #acf-creature-shape, #acf-creature-size, #acf-creature-notable-features, #acf-creature-materials").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+  } );
+// Creature - Traits
+  $(".single-creature #tablink-3").click( function() {
+    // Set Active Display Tab Button
+    $(".tablink").removeClass("active");
+    $("#tablink-3").addClass("active");
+    // Show Tab Content
+    $(".tabcontent").hide();
+    $("#tabcontent-3").show();
+    // Set Active Edit Tab Button
+    $("#edit-Fields .acf-tab-wrap li").removeClass("active");
+    $("#edit-Fields .acf-tab-wrap li:nth-child(3)").addClass("active");
+    // Show Edit Tab Fields
+    $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
+    $("#acf-creature-aggressiveness, #acf-creature-method-of-attack, #acf-creature-method-of-defense, #acf-creature-maximum-speed, #acf-creature-strengths, #acf-creature-weakness, #acf-creature-sounds, #acf-creature-spoils").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+  } );
+// Creature - Habitat
+  $(".single-creature #tablink-4").click( function() {
+    // Set Active Display Tab Button
+    $(".tablink").removeClass("active");
+    $("#tablink-4").addClass("active");
+    // Show Tab Content
+    $(".tabcontent").hide();
+    $("#tabcontent-4").show();
+    // Set Active Edit Tab Button
+    $("#edit-Fields .acf-tab-wrap li").removeClass("active");
+    $("#edit-Fields .acf-tab-wrap li:nth-child(4)").addClass("active");
+    // Show Edit Tab Fields
+    $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
+    $("#acf-creature-preferred-habitat, #acf-creature-habitats-select, #acf-creature-food-source, #acf-creature-migratory-pattern, #acf-creature-reproductive-patterns, #acf-creature-herding-pattern").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+  } );
+// Creature - Comparisons
+  $(".single-creature #tablink-5").click( function() {
+    // Set Active Display Tab Button
+    $(".tablink").removeClass("active");
+    $("#tablink-5").addClass("active");
+    // Show Tab Content
+    $(".tabcontent").hide();
+    $("#tabcontent-5").show();
+    // Set Active Edit Tab Button
+    $("#edit-Fields .acf-tab-wrap li").removeClass("active");
+    $("#edit-Fields .acf-tab-wrap li:nth-child(5)").addClass("active");
+    // Show Edit Tab Fields
+    $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
+    $("#acf-creature-similar-creatures, #acf-creature-symbolisms, #acf-creature-related-creatures").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+  } );
+// Creature - Notes
+  $(".single-creature #tablink-6").click( function() {
+    // Set Active Display Tab Button
+    $(".tablink").removeClass("active");
+    $("#tablink-6").addClass("active");
+    // Show Tab Content
+    $(".tabcontent").hide();
+    $("#tabcontent-6").show();
+    // Set Active Edit Tab Button
+    $("#edit-Fields .acf-tab-wrap li").removeClass("active");
+    $("#edit-Fields .acf-tab-wrap li:nth-child(6)").addClass("active");
+    // Show Edit Tab Fields
+    $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
+    $("#acf-creature-public, #acf-creature-private").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
+  } );
+// Creature - Gallery
+  $(".single-creature #tablink-7").click( function() {
+    // Set Active Display Tab Button
+    $(".tablink").removeClass("active");
+    $("#tablink-7").addClass("active");
+    // Show Tab Content
+    $(".tabcontent").hide();
+    $("#tabcontent-7").show();
+    // Set Active Edit Tab Button
+    $("#edit-Fields .acf-tab-wrap li").removeClass("active");
+    $("#edit-Fields .acf-tab-wrap li:nth-child(7)").addClass("active");
+    // Show Edit Tab Fields
+    $(".inside .field").addClass("acf-tab_group-hide").removeClass("acf-tab_group-show");
+    $("#acf-creature-featured").removeClass("acf-tab_group-hide").addClass("acf-tab_group-show");
   } );
 });
 /* ========================================= */

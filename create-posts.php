@@ -100,6 +100,31 @@ function create_item_form( $post_id ) {
   return $post_id;
 }
 
+// --------- Creatures ---------
+// Create Post
+add_filter('acf/pre_save_post' , 'create_creature_form' );
+function create_creature_form( $post_id ) {
+  // bail early if not a new post
+  if( $post_id !== 'new_creature' ) {
+    return $post_id;
+  }
+  // vars
+  $title = $_POST['fields']['field_5929015a810f1'];
+  // Create a new post
+  $post = array(
+    'post_status'	=> 'publish',
+    'post_type'		=> 'creature',
+    'post_title'	=> $title,
+  );
+  // insert the post
+  $post_id = wp_insert_post( $post );
+  // Update $_POST Return
+  $url = get_permalink($post_id);
+	$_POST['return'] = ($url);
+  // return the new ID
+  return $post_id;
+}
+
 
 
 // --------- Edit Posts ---------
@@ -112,6 +137,8 @@ function edit_title_slug( $post_id ) {
     $new_slug = get_field('character-name', $post_id);
   } elseif (get_post_type() == 'item' ) {
     $new_slug = get_field('item-name', $post_id);
+  } elseif (get_post_type() == 'creature' ) {
+    $new_slug = get_field('creature-name', $post_id);
   }
   $my_post = array(
     'ID'          => $post_id,

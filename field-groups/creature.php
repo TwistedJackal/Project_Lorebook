@@ -25,20 +25,9 @@ if(function_exists("register_field_group"))
 				'formatting' => 'br',
 			),
 			array (
-				'key' => 'field_592901ab810f2',
-				'label' => 'Description',
-				'name' => 'creature-description',
-				'type' => 'textarea',
-				'default_value' => '',
-				'placeholder' => 'How would you describe this creature?',
-				'maxlength' => '',
-				'rows' => 1,
-				'formatting' => 'br',
-			),
-			array (
 				'key' => 'field_592901da810f3',
-				'label' => 'Type of creature',
-				'name' => 'creature-type-of-creature',
+				'label' => 'Type of Creature',
+				'name' => 'creature-type',
 				'type' => 'textarea',
 				'default_value' => '',
 				'placeholder' => 'What type of creature is this?',
@@ -60,6 +49,17 @@ if(function_exists("register_field_group"))
 				),
 				'allow_null' => 0,
 				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_592901ab810f2',
+				'label' => 'Description',
+				'name' => 'creature-description',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => 'How would you describe this creature?',
+				'maxlength' => '',
+				'rows' => 1,
+				'formatting' => 'br',
 			),
 			array (
 				'key' => 'field_59290298810f5',
@@ -141,7 +141,7 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_59290436810fd',
-				'label' => 'Method Of Attack',
+				'label' => 'Method of Attack',
 				'name' => 'creature-method-of-attack',
 				'type' => 'textarea',
 				'default_value' => '',
@@ -178,7 +178,7 @@ if(function_exists("register_field_group"))
 				'name' => 'creature-strengths',
 				'type' => 'textarea',
 				'default_value' => '',
-				'placeholder' => 'What are the notable strengths of this creature',
+				'placeholder' => 'What are the notable strengths of this creature?',
 				'maxlength' => '',
 				'rows' => 1,
 				'formatting' => 'br',
@@ -189,7 +189,7 @@ if(function_exists("register_field_group"))
 				'name' => 'creature-weakness',
 				'type' => 'textarea',
 				'default_value' => '',
-				'placeholder' => 'What are the notable weaknesses of this creature',
+				'placeholder' => 'What are the notable weaknesses of this creature?',
 				'maxlength' => '',
 				'rows' => 1,
 				'formatting' => 'br',
@@ -236,7 +236,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_592905da81106',
 				'label' => 'Habitat',
-				'name' => 'creature-habitat',
+				'name' => 'creature-habitats-select',
 				'type' => 'post_object',
 				'post_type' => array (
 					0 => 'location',
@@ -244,7 +244,7 @@ if(function_exists("register_field_group"))
 				'taxonomy' => array (
 					0 => 'all',
 				),
-				'allow_null' => 0,
+				'allow_null' => 1,
 				'multiple' => 1,
 			),
 			array (
@@ -342,7 +342,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5929075481110',
 				'label' => 'Public Notes',
-				'name' => 'creature-public-notes',
+				'name' => 'creature-public',
 				'type' => 'textarea',
 				'default_value' => '',
 				'placeholder' => 'Write as little or as much as you want!',
@@ -353,7 +353,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5929077281111',
 				'label' => 'Private Notes',
-				'name' => 'creature-private-notes',
+				'name' => 'creature-private',
 				'type' => 'textarea',
 				'default_value' => '',
 				'placeholder' => 'Write as little or as much as you want!',
@@ -370,7 +370,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5929079781113',
 				'label' => 'Featured Image',
-				'name' => 'creature-featured-image',
+				'name' => 'creature-featured',
 				'type' => 'image',
 				'save_format' => 'url',
 				'preview_size' => 'thumbnail',
