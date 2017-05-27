@@ -192,6 +192,222 @@ function new_item_template( $page_template )
     return $page_template;
 }
 
+// 'Create Group' Page
+function install_new_group_pg(){
+  $new_page_title = 'Create Group';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-group.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+  );
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_group_pg');
+
+add_filter( 'page_template', 'new_group_template' );
+function new_group_template( $page_template )
+{
+    if ( is_page( 'create-group' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new-group.php';
+    }
+    return $page_template;
+}
+
+// 'Create Creature' Page
+function install_new_creature_pg(){
+  $new_page_title = 'Create Creature';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-creature.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+  );
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_creature_pg');
+
+add_filter( 'page_template', 'new_creature_template' );
+function new_creature_template( $page_template )
+{
+    if ( is_page( 'create-creature' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new-creature.php';
+    }
+    return $page_template;
+}
+
+// 'Create Language' Page
+function install_new_language_pg(){
+  $new_page_title = 'Create Language';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-language.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+  );
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_language_pg');
+
+add_filter( 'page_template', 'new_language_template' );
+function new_language_template( $page_template )
+{
+    if ( is_page( 'create-language' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new-language.php';
+    }
+    return $page_template;
+}
+
+// 'Create Magic' Page
+function install_new_magic_pg(){
+  $new_page_title = 'Create Magic';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-magic.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+  );
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_magic_pg');
+
+add_filter( 'page_template', 'new_magic_template' );
+function new_magic_template( $page_template )
+{
+    if ( is_page( 'create-magic' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new-magic.php';
+    }
+    return $page_template;
+}
+
+// 'Create Race' Page
+function install_new_race_pg(){
+  $new_page_title = 'Create Race';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-race.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+  );
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_race_pg');
+
+add_filter( 'page_template', 'new_race_template' );
+function new_race_template( $page_template )
+{
+    if ( is_page( 'create-race' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new-race.php';
+    }
+    return $page_template;
+}
+
+// 'Create Religion' Page
+function install_new_religion_pg(){
+  $new_page_title = 'Create Religion';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-religion.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+  );
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_religion_pg');
+
+add_filter( 'page_template', 'new_religion_template' );
+function new_religion_template( $page_template )
+{
+    if ( is_page( 'create-religion' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new-religion.php';
+    }
+    return $page_template;
+}
+
+// 'Create Scene' Page
+function install_new_scene_pg(){
+  $new_page_title = 'Create Scene';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-scene.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+  );
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_scene_pg');
+
+add_filter( 'page_template', 'new_scene_template' );
+function new_scene_template( $page_template )
+{
+    if ( is_page( 'create-scene' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new-scene.php';
+    }
+    return $page_template;
+}
 
 // Set Featured Images
 function acf_set_featured_image( $value, $post_id, $field  ){
