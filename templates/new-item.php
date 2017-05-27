@@ -1,6 +1,6 @@
 <?php
 
-// ========= CREATE NEW UNIVERSE =========
+// ========= CREATE NEW ITEM =========
 
 acf_form_head();
 get_header();
@@ -28,12 +28,12 @@ get_header();
 
   	<?php
   	acf_form(array(
-      'field_groups' => array('acf_universe'),
-  		'post_id'		=> 'new_universe',
+      'field_groups' => array('acf_item'),
+  		'post_id'		=> 'new_item',
   		'post_title'	=> true,
   		'post_content'	=> true,
   		'new_post'		=> array(
-  			'post_type'		=> 'universe',
+  			'post_type'		=> 'item',
   			'post_status'	=> 'publish'
   		),
       'submit_value' => 'Create'

@@ -435,5 +435,3 @@ function acf_set_featured_image( $value, $post_id, $field  ){
 // acf/update_value/name={$field_name} - filter for a specific field based on it's name
 add_filter('acf/update_value/name=universe-featured', 'acf_set_featured_image', 10, 3);
 add_filter('acf/update_value/name=location-featured', 'acf_set_featured_image', 10, 3);
-
-// i did make the change :)

@@ -18,7 +18,7 @@ if (is_user_logged_in() && $current_user->ID == $post->post_author) {
 
 <div id="lorebook-main">
 
-  <a id="create-New" href="create-location/">NEW</a>
+  <a id="create-New" href="/create-location/">NEW</a>
 
   <ul id="lorebook-navigation">
     <li><a href="/universes"><i class="fa-phone"></i>Universes</a></li>
@@ -137,7 +137,7 @@ if (is_user_logged_in() && $current_user->ID == $post->post_author) {
 
 			<div id="location-population">
         <h2>Population</h2>
-        <?php if(get_field('location-populatino')) { ?>
+        <?php if(get_field('location-population')) { ?>
           <p><?php the_field('location-population'); ?></p>
         <?php } else { ?>
           <p class="placeholder">What is this location's population?</p><?php } ?>
