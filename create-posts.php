@@ -50,6 +50,31 @@ function create_location_form( $post_id ) {
   return $post_id;
 }
 
+// --------- Characters ---------
+// Create Post
+add_filter('acf/pre_save_post' , 'create_character_form' );
+function create_character_form( $post_id ) {
+  // bail early if not a new post
+  if( $post_id !== 'new_character' ) {
+    return $post_id;
+  }
+  // vars
+  $title = $_POST['fields']['field_592870c3e8ceb'];
+  // Create a new post
+  $post = array(
+    'post_status'	=> 'publish',
+    'post_type'		=> 'character',
+    'post_title'	=> $title,
+  );
+  // insert the post
+  $post_id = wp_insert_post( $post );
+  // Update $_POST Return
+  $url = get_permalink($post_id);
+	$_POST['return'] = ($url);
+  // return the new ID
+  return $post_id;
+}
+
 // --------- Items ---------
 // Create Post
 add_filter('acf/pre_save_post' , 'create_item_form' );
@@ -83,6 +108,8 @@ function edit_title_slug( $post_id ) {
     $new_slug = get_field('universe-name', $post_id);
   } elseif (get_post_type() == 'location' ) {
     $new_slug = get_field('location-name', $post_id);
+  } elseif (get_post_type() == 'character' ) {
+    $new_slug = get_field('character-name', $post_id);
   } elseif (get_post_type() == 'item' ) {
     $new_slug = get_field('item-name', $post_id);
   }
