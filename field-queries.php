@@ -13,8 +13,7 @@ return $args;
 // filter for every field
 add_filter('acf/fields/post_object/query/name=location-universe', 'universe_author_query', 10, 3);
 
-
-// Restrict Location Selection to Current User
+// Restrict location Selection to Current User
 function location_author_query( $args, $field, $post ) {
 // modify the order
 $current_user = wp_get_current_user();
@@ -29,8 +28,7 @@ add_filter('acf/fields/post_object/query/name=location-capital', 'location_autho
 add_filter('acf/fields/post_object/query/name=location-largest-cities', 'location_author_query', 10, 3);
 add_filter('acf/fields/post_object/query/name=location-notable-cities', 'location_author_query', 10, 3);
 
-
-// Restrict Character Selection to Current User
+// Restrict character Selection to Current User
 function character_author_query( $args, $field, $post ) {
 // modify the order
 $current_user = wp_get_current_user();
@@ -43,8 +41,7 @@ return $args;
 // filter for every field
 add_filter('acf/fields/post_object/query/name=location-leaders', 'character_author_query', 10, 3);
 
-
-// Restrict Language Selection to Current User
+// Restrict language Selection to Current User
 function language_author_query( $args, $field, $post ) {
 // modify the order
 $current_user = wp_get_current_user();
