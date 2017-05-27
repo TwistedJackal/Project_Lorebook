@@ -100,6 +100,31 @@ function create_item_form( $post_id ) {
   return $post_id;
 }
 
+// --------- Magic ---------
+// Create Post
+add_filter('acf/pre_save_post' , 'create_magic_form' );
+function create_magic_form( $post_id ) {
+  // bail early if not a new post
+  if( $post_id !== 'new_magic' ) {
+    return $post_id;
+  }
+  // vars
+  $title = $_POST['fields']['field_5929e3de2ae76'];
+  // Create a new post
+  $post = array(
+    'post_status'	=> 'publish',
+    'post_type'		=> 'magic',
+    'post_title'	=> $title,
+  );
+  // insert the post
+  $post_id = wp_insert_post( $post );
+  // Update $_POST Return
+  $url = get_permalink($post_id);
+	$_POST['return'] = ($url);
+  // return the new ID
+  return $post_id;
+}
+
 // --------- Creatures ---------
 // Create Post
 add_filter('acf/pre_save_post' , 'create_creature_form' );
@@ -125,6 +150,106 @@ function create_creature_form( $post_id ) {
   return $post_id;
 }
 
+// --------- Races ---------
+// Create Post
+add_filter('acf/pre_save_post' , 'create_race_form' );
+function create_race_form( $post_id ) {
+  // bail early if not a new post
+  if( $post_id !== 'new_race' ) {
+    return $post_id;
+  }
+  // vars
+  $title = $_POST['fields']['field_5929e3a23c740'];
+  // Create a new post
+  $post = array(
+    'post_status'	=> 'publish',
+    'post_type'		=> 'race',
+    'post_title'	=> $title,
+  );
+  // insert the post
+  $post_id = wp_insert_post( $post );
+  // Update $_POST Return
+  $url = get_permalink($post_id);
+	$_POST['return'] = ($url);
+  // return the new ID
+  return $post_id;
+}
+
+// --------- Languages ---------
+// Create Post
+add_filter('acf/pre_save_post' , 'create_language_form' );
+function create_language_form( $post_id ) {
+  // bail early if not a new post
+  if( $post_id !== 'new_language' ) {
+    return $post_id;
+  }
+  // vars
+  $title = $_POST['fields']['field_5929f37b884c0'];
+  // Create a new post
+  $post = array(
+    'post_status'	=> 'publish',
+    'post_type'		=> 'language',
+    'post_title'	=> $title,
+  );
+  // insert the post
+  $post_id = wp_insert_post( $post );
+  // Update $_POST Return
+  $url = get_permalink($post_id);
+	$_POST['return'] = ($url);
+  // return the new ID
+  return $post_id;
+}
+
+// --------- Religions ---------
+// Create Post
+add_filter('acf/pre_save_post' , 'create_religion_form' );
+function create_religion_form( $post_id ) {
+  // bail early if not a new post
+  if( $post_id !== 'new_religion' ) {
+    return $post_id;
+  }
+  // vars
+  $title = $_POST['fields']['field_5929e936838a5'];
+  // Create a new post
+  $post = array(
+    'post_status'	=> 'publish',
+    'post_type'		=> 'religion',
+    'post_title'	=> $title,
+  );
+  // insert the post
+  $post_id = wp_insert_post( $post );
+  // Update $_POST Return
+  $url = get_permalink($post_id);
+	$_POST['return'] = ($url);
+  // return the new ID
+  return $post_id;
+}
+
+// --------- Scenes ---------
+// Create Post
+add_filter('acf/pre_save_post' , 'create_scene_form' );
+function create_scene_form( $post_id ) {
+  // bail early if not a new post
+  if( $post_id !== 'new_scene' ) {
+    return $post_id;
+  }
+  // vars
+  $title = $_POST['fields']['field_5929f6fdd39e3'];
+  // Create a new post
+  $post = array(
+    'post_status'	=> 'publish',
+    'post_type'		=> 'scene',
+    'post_title'	=> $title,
+  );
+  // insert the post
+  $post_id = wp_insert_post( $post );
+  // Update $_POST Return
+  $url = get_permalink($post_id);
+	$_POST['return'] = ($url);
+  // return the new ID
+  return $post_id;
+}
+
 
 
 // --------- Edit Posts ---------
@@ -137,8 +262,18 @@ function edit_title_slug( $post_id ) {
     $new_slug = get_field('character-name', $post_id);
   } elseif (get_post_type() == 'item' ) {
     $new_slug = get_field('item-name', $post_id);
+  } elseif (get_post_type() == 'magic' ) {
+    $new_slug = get_field('magic-name', $post_id);
   } elseif (get_post_type() == 'creature' ) {
     $new_slug = get_field('creature-name', $post_id);
+  } elseif (get_post_type() == 'race' ) {
+    $new_slug = get_field('race-name', $post_id);
+  } elseif (get_post_type() == 'language' ) {
+    $new_slug = get_field('language-name', $post_id);
+  } elseif (get_post_type() == 'religion' ) {
+    $new_slug = get_field('religion-name', $post_id);
+  } elseif (get_post_type() == 'scene' ) {
+    $new_slug = get_field('scene-name', $post_id);
   }
   $my_post = array(
     'ID'          => $post_id,

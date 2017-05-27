@@ -90,7 +90,7 @@ include_once( plugin_dir_path( __FILE__ ) . 'field-queries.php' );
 function install_new_universe_pg(){
   $new_page_title = 'Create Universe';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-universe.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-universe.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -112,7 +112,7 @@ add_filter( 'page_template', 'new_universe_template' );
 function new_universe_template( $page_template )
 {
     if ( is_page( 'create-universe' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-universe.php';
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-universe.php';
     }
     return $page_template;
 }
@@ -122,7 +122,7 @@ function new_universe_template( $page_template )
 function install_new_location_pg(){
   $new_page_title = 'Create Location';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-location.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-location.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -144,7 +144,7 @@ add_filter( 'page_template', 'new_location_template' );
 function new_location_template( $page_template )
 {
     if ( is_page( 'create-location' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-location.php';
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-location.php';
     }
     return $page_template;
 }
@@ -154,7 +154,7 @@ function new_location_template( $page_template )
 function install_new_character_pg(){
   $new_page_title = 'Create Character';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-character.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-character.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -176,7 +176,7 @@ add_filter( 'page_template', 'new_character_template' );
 function new_character_template( $page_template )
 {
     if ( is_page( 'create-character' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-character.php';
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-character.php';
     }
     return $page_template;
 }
@@ -186,7 +186,7 @@ function new_character_template( $page_template )
 function install_new_item_pg(){
   $new_page_title = 'Create Item';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-item.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-item.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -208,7 +208,7 @@ add_filter( 'page_template', 'new_item_template' );
 function new_item_template( $page_template )
 {
     if ( is_page( 'create-item' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-item.php';
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-item.php';
     }
     return $page_template;
 }
@@ -218,7 +218,7 @@ function new_item_template( $page_template )
 function install_new_magic_pg(){
   $new_page_title = 'Create Magic';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-magic.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-magic.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -240,7 +240,7 @@ add_filter( 'page_template', 'new_magic_template' );
 function new_magic_template( $page_template )
 {
     if ( is_page( 'create-magic' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-magic.php';
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-magic.php';
     }
     return $page_template;
 }
@@ -250,7 +250,7 @@ function new_magic_template( $page_template )
 function install_new_creature_pg(){
   $new_page_title = 'Create Creature';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-creature.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-creature.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -272,7 +272,7 @@ add_filter( 'page_template', 'new_creature_template' );
 function new_creature_template( $page_template )
 {
     if ( is_page( 'create-creature' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-creature.php';
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-creature.php';
     }
     return $page_template;
 }
@@ -282,7 +282,7 @@ function new_creature_template( $page_template )
 function install_new_race_pg(){
   $new_page_title = 'Create Race';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-race.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-race.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -304,7 +304,7 @@ add_filter( 'page_template', 'new_race_template' );
 function new_race_template( $page_template )
 {
     if ( is_page( 'create-race' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-race.php';
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-race.php';
     }
     return $page_template;
 }
@@ -314,7 +314,7 @@ function new_race_template( $page_template )
 function install_new_language_pg(){
   $new_page_title = 'Create Language';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-language.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-language.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -336,7 +336,7 @@ add_filter( 'page_template', 'new_language_template' );
 function new_language_template( $page_template )
 {
     if ( is_page( 'create-language' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-language.php';
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-language.php';
     }
     return $page_template;
 }
@@ -346,7 +346,7 @@ function new_language_template( $page_template )
 function install_new_religion_pg(){
   $new_page_title = 'Create Religion';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-religion.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-religion.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -368,7 +368,7 @@ add_filter( 'page_template', 'new_religion_template' );
 function new_religion_template( $page_template )
 {
     if ( is_page( 'create-religion' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-religion.php';
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-religion.php';
     }
     return $page_template;
 }
@@ -378,7 +378,7 @@ function new_religion_template( $page_template )
 function install_new_group_pg(){
   $new_page_title = 'Create Group';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-group.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-group.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -400,7 +400,7 @@ add_filter( 'page_template', 'new_group_template' );
 function new_group_template( $page_template )
 {
     if ( is_page( 'create-group' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-group.php';
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-group.php';
     }
     return $page_template;
 }
@@ -410,7 +410,7 @@ function new_group_template( $page_template )
 function install_new_scene_pg(){
   $new_page_title = 'Create Scene';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new-scene.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-scene.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -432,7 +432,7 @@ add_filter( 'page_template', 'new_scene_template' );
 function new_scene_template( $page_template )
 {
     if ( is_page( 'create-scene' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new-scene.php';
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-scene.php';
     }
     return $page_template;
 }
