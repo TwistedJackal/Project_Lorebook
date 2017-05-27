@@ -67,20 +67,4 @@ function fix_admin_parent_language($parent_file){
     }
     return $parent_file;
 }
-
-
-/*
-// Permalinks
-add_filter( 'post_type_link', 'language_post_type_link', 10, 4 );
-function language_post_type_link( $post_link, $post, $leavename, $sample )
-{
-    if ( 'language' == $post->post_type ) {
-        $authordata = get_userdata( $post->post_author );
-        $author = $authordata->user_nicename;
-        $post_link = str_replace( '%author%', $author, $post_link );
-    }
-    return $post_link;
-}
-*/
-
 // =============================

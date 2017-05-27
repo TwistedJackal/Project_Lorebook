@@ -7,20 +7,7 @@ get_header(); ?>
 
 <div id="lorebook-main">
 
-  <a id="create-New" href="/create-location/">NEW</a>
-
-
-  <div id="archive-browser">
-    <?php
-      $universe_selector = array(
-        'field_groups' => array(201948),
-        'submit_value' => 'Save'
-      );
-
-      acf_form( $universe_selector );
-    ?>
-  </div>
-
+  <a id="create-New" href="/create-item/">NEW</a>
 
   <ul id="lorebook-navigation">
     <li><a href="/universes"><i class="fa-phone"></i>Universes</a></li>
@@ -41,21 +28,11 @@ get_header(); ?>
       if ( is_user_logged_in() ):
         global $current_user;
     wp_get_current_user();
-
-    $universe = get_field('universe-selector');
-
     $author_query = array(
       'posts_per_page' => '-1',
       'author' => $current_user->ID,
-      'post_type' => 'location',
-      'meta_query' => array(
-        array(
-          'key' => 'location-universe',
-          'value' => $universe
-        )
-      )
+      'post_type' => 'item'
     );
-
     $author_posts = new WP_Query($author_query);
     while($author_posts->have_posts()) : $author_posts->the_post();
     ?>

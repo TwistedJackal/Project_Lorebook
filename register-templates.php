@@ -77,6 +77,31 @@ function archive_character_template($template) {
 /* ================================ */
 
 
+/* ========== ITEMS ========== */
+if( !function_exists('get_item_template') ):
+ function get_item_template($single_template) {
+    global $wp_query, $post;
+    if ($post->post_type == 'item'){
+        $single_template = plugin_dir_path(__FILE__) . '/templates/single-item.php';
+    }//end if item
+    return $single_template;
+}//end get_item_template function
+endif;
+add_filter( 'single_template', 'get_item_template' ) ;
+
+// Items Archive
+add_filter('archive_template', 'archive_item_template');
+function archive_item_template($template) {
+    global $wp_query;
+    if (is_post_type_archive('item')) {
+        $templates[] = 'archive-item.php';
+        $template = lorebook_locate_plugin_template($templates);
+    }
+    return $template;
+}
+/* ================================ */
+
+
 // -------------------------------------------------------
 
 

@@ -18,7 +18,7 @@ if (is_user_logged_in() && $current_user->ID == $post->post_author) {
 
 <div id="lorebook-main">
 
-  <a id="create-New" href="create-universe/">NEW</a>
+  <a id="create-New" href="/create-universe/">NEW</a>
 
   <ul id="lorebook-navigation">
     <li><a href="/universes"><i class="fa-phone"></i>Universes</a></li>
