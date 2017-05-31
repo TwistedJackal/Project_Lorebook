@@ -38,14 +38,23 @@ get_header(); ?>
     ?>
 
       <?php
-      $bg = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'full' );
+      $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
+      $default = plugin_dir_url( dirname( _FILE__ ) )  . '/Lorebook/assets/bg-universe.png';
       ?>
 
+      <?php if ( has_post_thumbnail() ) { ?>
         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-          <div id="archive-post" style="background: url('<?php echo $bg[0]; ?>') repeat center center #fbfbfb; background-size:cover;">
+          <div id="archive-post" style="background: url('<?php echo $thumb[0]; ?>') repeat center center #fbfbfb; background-size:cover;">
             <h1><?php the_title(); ?></h1>
           </div>
         </a>
+      <?php } else { ?>
+        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+          <div id="archive-post" style="background: url('<?php echo $default; ?>') repeat center center #fbfbfb; background-size:cover;">
+            <h1><?php the_title(); ?></h1>
+          </div>
+        </a>
+      <?php } ?>
 
     <?php
     endwhile;
