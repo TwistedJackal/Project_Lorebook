@@ -40,23 +40,6 @@ if (is_user_logged_in() && $current_user->ID == $post->post_author) {
     <h1><?php the_title(); ?></h1>
   </div>
 
-  <!-- ========= create new page ========= -->
-    <div class="dropdown">
-     <button class="dropbtn">Create</button>
-     <div class="dropdown-content">
-       <a href="/create-scene/">Scenes</a>
-       <a href="/create-group/">Groups</a>
-       <a href="/create-religion/">Religions</a>
-       <a href="/create-language/">Languages</a>
-       <a href="/create-race/">Races</a>
-       <a href="/create-creature/">Creatures</a>
-       <a href="/create-magic/">Magics</a>
-       <a href="/create-item/">Items</a>
-       <a href="/create-character/">Characters</a>
-       <a href="/create-location/">Locations</a>
-       <a href="/create-universe/">Universe</a>
-     </div>
-    </div>
 
   <!-- ========= EDIT FIELDS ========= -->
   <div id="edit-Fields">
@@ -81,6 +64,24 @@ if (is_user_logged_in() && $current_user->ID == $post->post_author) {
 
 
   <!-- ========= DISPLAY FIELDS ========= -->
+<!-- ========= create page ========= -->
+  <div class="dropdown">
+   <button class="dropbtn">Create</button>
+   <div class="dropdown-content">
+     <a href="/create-scene/">Scenes</a>
+     <a href="/create-group/">Groups</a>
+     <a href="/create-religion/">Religions</a>
+     <a href="/create-language/">Languages</a>
+     <a href="/create-race/">Races</a>
+     <a href="/create-creature/">Creatures</a>
+     <a href="/create-magic/">Magics</a>
+     <a href="/create-item/">Items</a>
+     <a href="/create-character/">Characters</a>
+     <a href="/create-location/">Locations</a>
+     <a href="/create-universe/">Universe</a>
+   </div>
+  </div>
+
   <div id="display-Fields">
 
     <button id="edit-Button">EDIT</button>
