@@ -386,6 +386,22 @@ if (is_user_logged_in() && $current_user->ID == $post->post_author) {
           <p class="placeholder">What is this character's favorite color?</p><?php } ?>
       </div>
 
+      <div id="character-food">
+        <h2>Favorite Food</h2>
+        <?php if(get_field('character-food')) { ?>
+          <p><?php the_field('character-food'); ?></p>
+        <?php } else { ?>
+          <p class="placeholder">What is this character's favorite food?</p><?php } ?>
+      </div>
+
+      <div id="character-possession">
+        <h2>Possesion</h2>
+        <?php if(get_field('character-possession')) { ?>
+          <p><?php the_field('character-possession'); ?></p>
+        <?php } else { ?>
+          <p class="placeholder">What is this character's favorite possession?</p><?php } ?>
+      </div>
+
       <div id="character-weapon">
         <h2>Weapon</h2>
         <?php if(get_field('character-weapon')) { ?>
