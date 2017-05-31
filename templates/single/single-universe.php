@@ -18,7 +18,11 @@ if (is_user_logged_in() && $current_user->ID == $post->post_author) {
 
 <div id="lorebook-main">
 
-  <a id="create-New" href="/create-universe/">NEW</a>
+  <div id="create-Buttons">
+    <ul>
+      <a id="create-New" href="/create-universe/">+</a>
+    </ul>
+  </div>
 
   <ul id="lorebook-navigation">
     <li><a href="/universes"><i class="fa-phone"></i>Universes</a></li>
@@ -35,8 +39,12 @@ if (is_user_logged_in() && $current_user->ID == $post->post_author) {
   </ul>
 
   <div id="lorebook-header">
-    <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>
-    <style>#lorebook-header { background-image: url('<?php echo $thumb['0'];?>'); }</style>
+    <?php if (get_field('universe-featured')) {
+      $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>
+      <style>#lorebook-header { background-image: url('<?php echo $thumb['0'];?>'); }</style>
+    <?php } else { ?>
+      <style>#lorebook-header { background-image: url('http://lorebook.twistedjackal.com/wp-content/uploads/BG-Asphalt-1.png'); }</style>
+    <?php } ?>
     <h1><?php the_title(); ?></h1>
   </div>
 

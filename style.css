@@ -96,10 +96,10 @@
 #edit-Fields #poststuff div input.add-image {
   right: 25%;
 }
-/* New Button
+/* New Button */
 #create-New {
   position: fixed;
-  right: 2%;
+  right: 16%;
   bottom: 1%;
   font-size: 16px;
   line-height: 1;
@@ -114,7 +114,6 @@
   border: 0;
   border-radius: 2px;
 }
-*/
 /* drop down button */
 .dropbtn {
   position: fixed;
