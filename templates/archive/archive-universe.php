@@ -39,7 +39,7 @@ get_header(); ?>
 
       <?php
       $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
-      $default = plugin_dir_url( dirname( _FILE__ ) )  . '/Lorebook/assets/bg-universe.png';
+      $default = plugin_dir_url( dirname( __FILE__ ) )  . '/Lorebook/assets/bg-universe.png';
       ?>
 
       <?php if ( has_post_thumbnail() ) { ?>

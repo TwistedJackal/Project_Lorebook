@@ -42,9 +42,10 @@ if (is_user_logged_in() && $current_user->ID == $post->post_author) {
     <?php if (get_field('universe-featured')) {
       $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>
       <style>#lorebook-header { background-image: url('<?php echo $thumb['0'];?>'); }</style>
-    <?php } else { ?>
-      <style>#lorebook-header { background-image: url('http://lorebook.twistedjackal.com/wp-content/uploads/BG-Asphalt-1.png'); }</style>
-    <?php } ?>
+      <?php } else {
+          $default = plugin_dir_url( dirname( _FILE__ ) )  . '/Lorebook/assets/bg-universe.png'; ?>
+          <style>#lorebook-header { background-image: url('<?php echo $default;?>'); }</style>
+        <?php } ?>
     <h1><?php the_title(); ?></h1>
   </div>
 

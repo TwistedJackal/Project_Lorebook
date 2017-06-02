@@ -86,8 +86,43 @@ include_once( plugin_dir_path( __FILE__ ) . 'field-queries.php' );
 // ------------------------------------------
 
 // ========= CREATE PAGES =========
+// --------- 'Create Dashboard' Page ---------
+function install_new_dashboard_pg(){
+  $new_page_title = 'Dashboard';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-dashboard.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+  );
+
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_dashboard_pg');
+
+add_filter( 'page_template', 'new_dashboard_template' );
+function new_dashboard_template( $page_template )
+{
+    if ( is_page( 'create-dashboard' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-dashboard.php';
+    }
+    return $page_template;
+}
+
+
 // --------- 'Create Universe' Page ---------
 function install_new_universe_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
   $new_page_title = 'Create Universe';
   $new_page_content = '';
   $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-universe.php';
@@ -98,6 +133,9 @@ function install_new_universe_pg(){
           'post_content' => $new_page_content,
           'post_status' => 'publish',
           'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 1,
   );
   if(!isset($page_check->ID)){
           $new_page_id = wp_insert_post($new_page);
@@ -120,6 +158,8 @@ function new_universe_template( $page_template )
 
 // --------- 'Create Location' Page ---------
 function install_new_location_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
   $new_page_title = 'Create Location';
   $new_page_content = '';
   $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-location.php';
@@ -130,6 +170,9 @@ function install_new_location_pg(){
           'post_content' => $new_page_content,
           'post_status' => 'publish',
           'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 2,
   );
   if(!isset($page_check->ID)){
           $new_page_id = wp_insert_post($new_page);
@@ -152,6 +195,8 @@ function new_location_template( $page_template )
 
 // --------- 'Create Character' Page ---------
 function install_new_character_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
   $new_page_title = 'Create Character';
   $new_page_content = '';
   $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-character.php';
@@ -162,6 +207,9 @@ function install_new_character_pg(){
           'post_content' => $new_page_content,
           'post_status' => 'publish',
           'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 3,
   );
   if(!isset($page_check->ID)){
           $new_page_id = wp_insert_post($new_page);
@@ -184,6 +232,8 @@ function new_character_template( $page_template )
 
 // --------- 'Create Item' Page ---------
 function install_new_item_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
   $new_page_title = 'Create Item';
   $new_page_content = '';
   $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-item.php';
@@ -194,6 +244,9 @@ function install_new_item_pg(){
           'post_content' => $new_page_content,
           'post_status' => 'publish',
           'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 4,
   );
   if(!isset($page_check->ID)){
           $new_page_id = wp_insert_post($new_page);
@@ -216,6 +269,8 @@ function new_item_template( $page_template )
 
 // --------- 'Create Magic' Page ---------
 function install_new_magic_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
   $new_page_title = 'Create Magic';
   $new_page_content = '';
   $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-magic.php';
@@ -226,6 +281,9 @@ function install_new_magic_pg(){
           'post_content' => $new_page_content,
           'post_status' => 'publish',
           'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 5,
   );
   if(!isset($page_check->ID)){
           $new_page_id = wp_insert_post($new_page);
@@ -248,6 +306,8 @@ function new_magic_template( $page_template )
 
 // --------- 'Create Creature' Page ---------
 function install_new_creature_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
   $new_page_title = 'Create Creature';
   $new_page_content = '';
   $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-creature.php';
@@ -258,6 +318,9 @@ function install_new_creature_pg(){
           'post_content' => $new_page_content,
           'post_status' => 'publish',
           'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 6,
   );
   if(!isset($page_check->ID)){
           $new_page_id = wp_insert_post($new_page);
@@ -280,6 +343,8 @@ function new_creature_template( $page_template )
 
 // --------- 'Create Race' Page ---------
 function install_new_race_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
   $new_page_title = 'Create Race';
   $new_page_content = '';
   $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-race.php';
@@ -290,6 +355,9 @@ function install_new_race_pg(){
           'post_content' => $new_page_content,
           'post_status' => 'publish',
           'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 7,
   );
   if(!isset($page_check->ID)){
           $new_page_id = wp_insert_post($new_page);
@@ -312,6 +380,8 @@ function new_race_template( $page_template )
 
 // --------- 'Create Language' Page ---------
 function install_new_language_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
   $new_page_title = 'Create Language';
   $new_page_content = '';
   $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-language.php';
@@ -322,6 +392,9 @@ function install_new_language_pg(){
           'post_content' => $new_page_content,
           'post_status' => 'publish',
           'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 8,
   );
   if(!isset($page_check->ID)){
           $new_page_id = wp_insert_post($new_page);
@@ -344,6 +417,8 @@ function new_language_template( $page_template )
 
 // --------- 'Create Religion' Page ---------
 function install_new_religion_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
   $new_page_title = 'Create Religion';
   $new_page_content = '';
   $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-religion.php';
@@ -354,6 +429,9 @@ function install_new_religion_pg(){
           'post_content' => $new_page_content,
           'post_status' => 'publish',
           'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 9,
   );
   if(!isset($page_check->ID)){
           $new_page_id = wp_insert_post($new_page);
@@ -376,6 +454,8 @@ function new_religion_template( $page_template )
 
 // --------- 'Create Group' Page ---------
 function install_new_group_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
   $new_page_title = 'Create Group';
   $new_page_content = '';
   $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-group.php';
@@ -386,6 +466,9 @@ function install_new_group_pg(){
           'post_content' => $new_page_content,
           'post_status' => 'publish',
           'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 10,
   );
   if(!isset($page_check->ID)){
           $new_page_id = wp_insert_post($new_page);
@@ -408,6 +491,8 @@ function new_group_template( $page_template )
 
 // --------- 'Create Scene' Page ---------
 function install_new_scene_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
   $new_page_title = 'Create Scene';
   $new_page_content = '';
   $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-scene.php';
@@ -418,6 +503,9 @@ function install_new_scene_pg(){
           'post_content' => $new_page_content,
           'post_status' => 'publish',
           'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 11,
   );
   if(!isset($page_check->ID)){
           $new_page_id = wp_insert_post($new_page);
