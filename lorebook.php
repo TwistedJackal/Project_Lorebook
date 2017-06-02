@@ -87,10 +87,10 @@ include_once( plugin_dir_path( __FILE__ ) . 'field-queries.php' );
 
 // ========= CREATE PAGES =========
 // --------- 'Create Dashboard' Page ---------
-function install_new_dashboard_pg(){
+function install_new_lorebook_dashboard_pg(){
   $new_page_title = 'Dashboard';
   $new_page_content = '';
-  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-dashboard.php';
+  $new_page_template = plugin_dir_path(__FILE__) . '/templates/new/new-lorebook-dashboard.php';
   $page_check = get_page_by_title($new_page_title);
   $new_page = array(
           'post_type' => 'page',
@@ -107,13 +107,13 @@ function install_new_dashboard_pg(){
           }
   }
 }
-register_activation_hook(__FILE__, 'install_new_dashboard_pg');
+register_activation_hook(__FILE__, 'install_new_lorebook_dashboard_pg');
 
-add_filter( 'page_template', 'new_dashboard_template' );
-function new_dashboard_template( $page_template )
+add_filter( 'page_template', 'new_lorebook_dashboard_template' );
+function new_lorebook_dashboard_template( $page_template )
 {
-    if ( is_page( 'create-dashboard' ) ) {
-        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-dashboard.php';
+    if ( is_page( 'dashboard' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/templates/new/new-lorebook-dashboard.php';
     }
     return $page_template;
 }
