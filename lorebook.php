@@ -525,6 +525,41 @@ function new_scene_template( $page_template )
     return $page_template;
 }
 
+// --------- 'Create Upgrade' Page ---------
+function install_new_upgrade_to_pro_pg(){
+  $dashboard = get_page_by_title('Dashboard');
+  $parent = wp_insert_post($dashboard);
+  $new_page_title = 'Upgrade to Pro';
+  $new_page_content = '';
+  $new_page_template = plugin_dir_path(__FILE__) . '/upgrade-to-pro.php';
+  $page_check = get_page_by_title($new_page_title);
+  $new_page = array(
+          'post_type' => 'page',
+          'post_title' => $new_page_title,
+          'post_content' => $new_page_content,
+          'post_status' => 'publish',
+          'post_author' => 1,
+          'hierarchical' => true,
+          'post_parent' => $parent,
+          'menu_order' => 12,
+  );
+  if(!isset($page_check->ID)){
+          $new_page_id = wp_insert_post($new_page);
+          if(!empty($new_page_template)){
+                  update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+          }
+  }
+}
+register_activation_hook(__FILE__, 'install_new_upgrade_to_pro_pg');
+
+add_filter( 'page_template', 'new_upgrade_to_pro_template' );
+function new_upgrade_to_pro_template( $page_template )
+{
+    if ( is_page( 'upgrade-to-pro' ) ) {
+        $page_template = plugin_dir_path(__FILE__) . '/upgrade-to-pro.php';
+    }
+    return $page_template;
+}
 
 
 // ========= Set Featured Images =========
